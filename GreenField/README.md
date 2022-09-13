@@ -24,4 +24,16 @@ As per given requirement, my attempt is to develop a deck of card in an object-o
 
 
 ##Structure
-	
+#### The unitTest project named as TestGreenField
+#### The actual console application named as GreenField
+
+### It is assumed that, there are 4 player. Once card is shaffle and distributed. Each player will get 13 cards. 
+
+### Each card object will hold the SuiteName and CardName
+### Suite object will hold whole suite of cards.
+### Deck object will hold all the cards (52). It will have a functionaliyt to shaffle the cards. 
+
+### Each player object hold the name and a list of cards. 
+
+## The Board is manily responible to add all the player and distribute cards amont the player. 
+
