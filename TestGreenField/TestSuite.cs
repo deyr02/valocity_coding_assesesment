@@ -25,5 +25,32 @@ namespace TestGreenField
             Assert.Equal(expectedSuiteName, _suiteName);
             
         }
+
+        [Theory]
+        [InlineData("Heart")]
+        public void SuiteItemsShouldBeCreated(string suiteName)
+        {
+            //Arange
+            Suite suite = new Suite(suiteName);
+            //Act
+            var cards = suite.Cards;
+            //Assert
+            Assert.NotEmpty(cards);
+        }
+
+        [Theory]
+        [InlineData("Heart", "A")]
+        [InlineData("Diamond", "K")]
+        public void SuiteItemsShouldContainsCard(string suiteName, string cardName)
+        {
+            //Arange
+            Suite suite = new(suiteName);
+            //Act
+            var cards = suite.Cards;
+            var card = new Card(suiteName, cardName);
+            //Assert
+            Assert.Contains<Card>(cards.FirstOrDefault(x=> x.CardName== cardName), cards);
+            ;
+        }
     }
 }
