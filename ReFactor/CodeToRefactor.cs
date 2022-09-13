@@ -6,11 +6,12 @@ namespace CodingAssessment.Refactor
 {
     public class People
     {
-        private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
+        //This line of code has been diaable as it is not sharing among the instances. 
+        //private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
         public string Name { get; private set; }
         public DateTimeOffset DOB { get; private set; }
 
-        public People(string name) : this(name, Under16.Date)
+        public People(string name) : this(name, DateTimeOffset.UtcNow.AddYears(-15).Date)
         {
         }
 
