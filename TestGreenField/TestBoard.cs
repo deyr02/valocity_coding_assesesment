@@ -10,6 +10,7 @@ namespace TestGreenField
 {
     public class TestBoard
     {
+        [Fact]
         public void PlayersCardShouldNotBeIdentical()
         {
             //Arrange
@@ -20,6 +21,7 @@ namespace TestGreenField
 
             //Assert
             Assert.NotEqual<List<Card>>(board.Players[0].Cards, board.Players[1].Cards);
+
         }
     }
 }

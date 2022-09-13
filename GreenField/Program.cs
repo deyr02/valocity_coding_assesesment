@@ -6,7 +6,10 @@ namespace GreenField
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Board board = new Board();
+            board.ShaffleCards();
+            board.DistributeCards();
+            board.PrintBoard();
         }
     }
 }
