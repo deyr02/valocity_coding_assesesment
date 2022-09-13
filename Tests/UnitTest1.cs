@@ -63,4 +63,39 @@ namespace Tests
 
         }
     }
+
+    public class TestBirthingUnit
+    {
+        [Theory]
+        [InlineData(5, 5)]
+        [InlineData(2, 2)]
+        [InlineData(-2, 0)]
+        public void ShouldInitializeGivenNumberofPeopleObject(int numberOfPeople, int exptectedListLength)
+        {
+            //Arrange
+            BirthingUnit birthingUnit = new BirthingUnit();
+            //Act
+            var peoples = birthingUnit.GetPeople(numberOfPeople);
+            //Assert
+            Assert.Equal(exptectedListLength, peoples.Count);
+
+        }
+
+
+
+
+
+        [Theory]
+        [InlineData("John", "Doe", "John Doe")]
+        [InlineData("Jemmy", "Mactester", "Jemmy")]
+        public void ShouldMergeNameAndLastName(string name, string lastName, string expectedOutput)
+        {
+            //Arange
+            BirthingUnit birthingUnit = new BirthingUnit();
+            //Act
+            string fullName = birthingUnit.GetMarried(new People(name), lastName);
+            //Assert
+            Assert.Equal(expectedOutput, fullName);
+        }
+    }
 }
