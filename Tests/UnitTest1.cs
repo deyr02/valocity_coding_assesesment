@@ -1,15 +1,23 @@
 using System;
+using CodingAssessment.Refactor;
 using FluentAssertions;
 using Xunit;
 
 namespace Tests
 {
-    public class UnitTest1
+    public class TestPeopleClassInitialization
     {
-        [Fact]
-        public void Test1()
+        [Theory]
+        [InlineData("Rajib", "Rajib")]
+        public void ShouldInitializeNamePropertiesThroughConstructorOne(string name, string expectedName)
         {
-            true.Should().BeTrue();
+            //Arrange
+            People people = new People(name);
+            //Act 
+            var _name = people.Name;
+            //Assert
+            Assert.Equal(expectedName, _name);
+
         }
     }
 }
