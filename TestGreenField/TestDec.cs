@@ -33,7 +33,7 @@ namespace TestGreenField
             List<Card> cards_repo = new List<Card>();
             cards_repo.AddRange(deck.Repository);
 
-           var shuffledCards = deck.Shuffle();
+            var shuffledCards = deck.Shuffle(2);
 
             //Assert
 
