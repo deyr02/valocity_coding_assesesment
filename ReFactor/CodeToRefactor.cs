@@ -54,9 +54,18 @@ namespace CodingAssessment.Refactor
             return DateTime.UtcNow.Subtract(new TimeSpan(random.Next(minAge, maxAge) * 356, 0, 0, 0));
         }
 
-        private IEnumerable<People> GetBobs(bool olderThan30)
+        //According to the clean code theory boolean value should not pass through parameter.
+        //Rather split the method into two sperate method. 
+        private IEnumerable<People> GetBobsBelow(int age)
         {
-            return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
+            return _people.Where(x => x.Name == "Bob" && x.DOB < DateTime.Now.Subtract(new TimeSpan(age * 356, 0, 0, 0)));
+
+        }
+
+        private IEnumerable<People> GetBobsAboveOrAt(int age)
+        {
+            return _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(age * 356, 0, 0, 0)));
+
         }
 
         public string GetMarried(People p, string lastName)
